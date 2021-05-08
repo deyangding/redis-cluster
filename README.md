@@ -1,18 +1,16 @@
 redis 环境搭建
-1.环境配置
+
+**1.环境配置**
+
 Redis是c开发的,因此安装redis需要c语言的编译环境,即需要安装gcc
-如何查看是否安装gcc
+  是否安装gcc: gcc -v
+  如果没有gcc,则需要在线安装
+  yum install gcc-c++
 
-gcc -v
+解压redis压缩包
 
-1
-如果没有gcc,则需要在线安装.命令如下
-
-yum install gcc-c++
-
-
-解压redis压缩包,解压命令如下
 tar zxf redis-3.0.0.tar.gz
+
 进入目录查看是否存在Makefile文件,存在则直接make编译redis源码
 
 安装编译后的redis代码到指定目录,一般存放于/usr/local下的redis目录,指令如下
@@ -21,7 +19,6 @@ make install PREFIX=/usr/local/redis
 
 进入 /usr/local/redis/bin
 至此,可以启动redis了,默认启动模式为前端启动,指令如下 
-
 ./redis-server
 
 后端启动
@@ -105,13 +102,6 @@ redis01/redis-cli -p 7001 -c
 最后，加上两条redis集群基本命令：
 1.查看当前集群信息
 cluster info 1
-
-
-
-
-
-
-
 
 2.查看集群里有多少个节点
 cluster nodes
